@@ -1,0 +1,60 @@
+version: '3'
+
+services:
+  nginx:
+    build:
+      context: config/nginx
+      dockerfile: config/nginx/Dockerfile
+    image: nginx:latest
+    volumes:
+      - ./main:/var/www
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+
+  php:
+    build:
+      context: config/php
+      dockerfile: config/php/Dockerfile
+    volumes:
+      - ./main:/var/www
+    environment:
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_PORT: ${POSTGRES_PORT}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    networks:
+      - app-network
+
+  db:
+    image: postgres:13.3
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    restart: always
+    volumes:
+      - ./config/db/pgdata:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+
+  redis:
+    image: 'redis:latest'
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - app-network
+
+  memcached:
+    image: memcached:latest
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
