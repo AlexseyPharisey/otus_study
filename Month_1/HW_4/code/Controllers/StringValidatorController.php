@@ -1,9 +1,9 @@
 <?php
 
-namespace Controllers;
+namespace HW_4\code\Controllers;
 
 use Exception;
-use Services\StringValidator;
+use HW_4\code\Services\StringValidator;
 
 class StringValidatorController
 {
