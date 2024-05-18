@@ -1,0 +1,20 @@
+{
+    "name": "month3/hw12",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "month3\\hw12\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lexach",
+            "email": "79162875844@mail.ru"
+        }
+    ],
+    "require": {
+        "predis/predis": "^2.2"
+    }
+}
+
+
