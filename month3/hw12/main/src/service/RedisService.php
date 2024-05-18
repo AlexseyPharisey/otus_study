@@ -36,7 +36,7 @@ class RedisService
 
     public function getData(): ?array
     {
-        return json_decode($this->redis->get(self::KEY), true);
+        return json_decode($this->redis->get(self::KEY) ?? '', true);
     }
 
     public function showData(array $paramArray): array
@@ -68,6 +68,11 @@ class RedisService
         }
 
         return $result;
+    }
+
+    public function delete()
+    {
+        $this->redis->del(self::KEY);
     }
 
     private function checkIsOriginal(array $existingData, array $data): bool

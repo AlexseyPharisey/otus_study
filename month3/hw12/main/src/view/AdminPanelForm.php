@@ -42,5 +42,10 @@
 </form>
 <pre></pre>
 <pre></pre>
+<form action="index.php" method="post">
+    <button type="submit" name="action" value="delete">ClearData</button>
+</form>
+<pre></pre>
+<pre></pre>
 </body>
 </html>

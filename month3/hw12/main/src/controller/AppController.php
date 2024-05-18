@@ -36,9 +36,13 @@ class AppController
     {
         $data = $this->redisService->getData();
 
-        echo '<pre>';
-        print_r ($data);
-        echo '</pre>';
+        if ($data) {
+            echo '<pre>';
+            print_r ($data);
+            echo '</pre>';
+        } else {
+            echo 'Данные отсутствуют';
+        }
 
         echo '<button onclick="history.back();">Go Back</button>';
     }
@@ -56,6 +60,14 @@ class AppController
             echo 'Данные нет';
         }
 
+        echo '<button onclick="history.back();">Go Back</button>';
+    }
+
+    public function delete()
+    {
+        $this->redisService->delete();
+
+        echo 'Данные успешно удалены';
         echo '<button onclick="history.back();">Go Back</button>';
     }
 

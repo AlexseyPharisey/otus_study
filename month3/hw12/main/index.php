@@ -19,6 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         case 'show':
             $controller->show();
         break;
+        case 'delete':
+            $controller->delete();
+            break;
     }
 } else {
     include __DIR__ . '/src/view/AdminPanelForm.php';
