@@ -1,0 +1,16 @@
+{
+    "name": "month5/hw29",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Month5\\Hw29\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lexach",
+            "email": "79162875844@mail.ru"
+        }
+    ],
+    "require": {}
+}
