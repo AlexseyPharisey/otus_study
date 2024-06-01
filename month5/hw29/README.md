@@ -2,8 +2,8 @@ __Домашнее задание__
 Leetcode практикум.2
 
 __Цель:__
-https://leetcode.com/problems/intersection-of-two-linked-lists/
-https://leetcode.com/problems/fraction-to-recurring-decimal/
+1. https://leetcode.com/problems/intersection-of-two-linked-lists/
+2. https://leetcode.com/problems/fraction-to-recurring-decimal/
 
 __Описание/Пошаговая инструкция выполнения домашнего задания:__
 1. Решаем задачу
