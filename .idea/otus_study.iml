@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/Month_1/HW_3/src" isTestSource="false" packagePrefix="Hw\Composer\" />
+      <sourceFolder url="file://$MODULE_DIR$/month1/hw4" isTestSource="false" packagePrefix="HW_4" />
+      <sourceFolder url="file://$MODULE_DIR$/month1/hw5" isTestSource="false" packagePrefix="HW_5" />
+      <excludeFolder url="file://$MODULE_DIR$/Month_1/HW_3/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/Month_1/HW_3/vendor/danielstjules/stringy" />
+      <excludeFolder url="file://$MODULE_DIR$/Month_1/HW_3/vendor/symfony/polyfill-mbstring" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

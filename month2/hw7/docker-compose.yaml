@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  server:
+    build:
+      context: ./config
+      dockerfile: Dockerfile
+    container_name: otus-server
+    volumes:
+      - ./code:/var/www
+      - ./socket:/tmp/socket
+    networks:
+      - internal
+
+  client:
+    build:
+      context: ./config
+      dockerfile: Dockerfile
+    container_name: otus-client
+    depends_on:
+      - server
+    volumes:
+      - ./code:/var/www
+      - ./socket:/tmp/socket
+    networks:
+      - internal
+
+networks:
+  internal:
