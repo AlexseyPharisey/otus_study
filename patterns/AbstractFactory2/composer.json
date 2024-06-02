@@ -1,0 +1,16 @@
+{
+    "name": "79162/abstract-factory2",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "patterns\\AbstractFactory2\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lexach",
+            "email": "79162875844@mail.ru"
+        }
+    ],
+    "require": {}
+}
