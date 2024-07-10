@@ -1,0 +1,16 @@
+{
+    "name": "patterns/factory",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "patterns\\factory\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lexach",
+            "email": "79162875844@mail.ru"
+        }
+    ],
+    "require": {}
+}
