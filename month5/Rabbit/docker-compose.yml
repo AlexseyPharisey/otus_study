@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  nginx:
+    build:
+      context: config/nginx
+      dockerfile: Dockerfile
+    image: nginx:latest
+    volumes:
+      - ./main:/var/www
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+
+  php:
+    build:
+      context: config/php
+      dockerfile: Dockerfile
+    volumes:
+      - ./main:/var/www
+    networks:
+      - app-network
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - app-network
+
+  memcached:
+    image: memcached:latest
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
