@@ -1,34 +1,24 @@
 <?php
-
-require 'vendor/autoload.php';
-
-use PhpAmqpLib\Connection\AMQPStreamConnection;
-use PhpAmqpLib\Message\AMQPMessage;
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'];
-    $start_date = $_POST['start_date'];
-    $end_date = $_POST['end_date'];
-
-    $data = json_encode([
-        'email' => $email,
-        'start_date' => $start_date,
-        'end_date' => $end_date
-    ]);
-
-    $connection = new AMQPStreamConnection('rabbitmq', 5672, 'guest', 'guest');
-    $channel = $connection->channel();
-
-    $channel->queue_declare('task_queue', false, true, false, false);
-
-    $msg = new AMQPMessage($data, ['delivery_mode' => AMQPMessage::DELIVERY_MODE_PERSISTENT]);
-
-    $channel->basic_publish($msg, '', 'task_queue');
-
-    echo 'Request received. You will be notified via email once the report is generated.';
-
-    $channel->close();
-    $connection->close();
-}
 ?>
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Банковская Выписка</title>
+</head>
+<body>
+<h1>Запрос на Генерацию Выписки</h1>
+<form action="rabbit.php" method="post">
+    <label for="start_date">Дата начала:</label>
+    <input type="date" id="start_date" name="start_date" required>
+    <br><br>
+    <label for="end_date">Дата конца:</label>
+    <input type="date" id="end_date" name="end_date" required>
+    <br><br>
+    <label for="email">Email для отправки:</label>
+    <input type="email" id="email" name="email" required>
+    <br><br>
+    <input type="submit" value="Отправить">
+</form>
+</body>
+</html>
